@@ -1,9 +1,29 @@
 <div class="container">
-    <div class="center-block">
-      <button class="btn btn-default btn-lg" type="submit" ng-click="$ctrl.explore()">Explore Your Area !</button>
-    </div>
+  <div class="center-block">
+    <button class="btn btn-default btn-lg" type="submit" ng-click="$ctrl.explore()">Explore Your Area !</button>
+  </div>
 </div>
 
-<div ng-if="">
+<div class="container">
+  <div ng-if="$ctrl.results" class="panel panel-default">
+    <div class="panel-body">
+      {{::$ctrl.results.response.headerFullLocation}}
+    </div>
+  </div>
 
+  <div ng-if="$ctrl.results" class="row">
+    <div class="col-sm-4" ng-repeat="result in $ctrl.results.response.groups[0].items">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{::result.venue.name}}</div>
+        <div class="panel-body">
+          <span>Address : {{::result.venue.location.address}}, {{::result.venue.location.city}}, {{::result.venue.location.cc}}</span><br
+          />
+          <span>Price range : {{::result.venue.price.message}}</span>
+        </div>
+        <div class="panel-footer">
+          <span>Tel : {{::result.venue.contact.formattedPhone}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
