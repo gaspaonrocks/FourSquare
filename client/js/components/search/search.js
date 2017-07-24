@@ -13,6 +13,7 @@ angular.module('FourSquare')
         if (navigator.geolocation) {
 
           navigator.geolocation.getCurrentPosition((position) => {
+            $log.log(position);
             FourSquare.search(position)
               .then((results) => {
                 this.results = results;

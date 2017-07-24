@@ -13,9 +13,7 @@ angular.module('FourSquare')
 
     this.search = (pos) => {
       return $q((resolve, reject) => {
-        $log.warn(`${this.CONSTANTS.FOURSQUARE_URL}${pos.coords.latitude},${pos.coords.longitude}&client_id=${this.CONSTANTS.CLIENT_ID}&client_secret=${this.CONSTANTS.CLIENT_SECRET}`)
-        $http.get(`${this.CONSTANTS.FOURSQUARE_URL}${pos.coords.latitude},${pos.coords.longitude}&client_id=${this.CONSTANTS.CLIENT_ID}&client_secret=${this.CONSTANTS.CLIENT_SECRET}`).then((response) => {
-            $log.info(response.data);
+        $http.get(`${this.CONSTANTS.FOURSQUARE_URL}${pos.coords.latitude},${pos.coords.longitude}&client_id=${this.CONSTANTS.CLIENT_ID}&client_secret=${this.CONSTANTS.CLIENT_SECRET}&v=${pos.timestamp}`).then((response) => {
             resolve(response.data);
           })
           .catch((err) => {
