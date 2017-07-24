@@ -10,14 +10,14 @@ Open a terminale in cloned folder
 
 Install http-server if you don't have it 
 
-sudo npm install http-server -g
+```sudo npm install http-server -g
 
 Install modules 
 
-npm i
+```npm i
 
 Run http-server
 
-http-server index.html
+```http-server index.html
 
-Open a browser a got to http://localhost:<PORT>
+Open a browser a go to http://localhost:`<PORT>`
