@@ -1,12 +1,12 @@
 # Test AngularJS FourSquare
 
-Exemple of an app using FourSquare API to list venues and places given a search string.
+Exemple of an app using FourSquare API to list venues and places around your location.
 
 # Installation
 
 Clone the repo
 
-Open a terminale in cloned folder
+Open a terminal in cloned folder
 
 Install http-server if you don't have it 
 
