@@ -9,9 +9,24 @@ angular.module('FourSquare')
         $log.log('search component loaded');
       }
 
-      this.search = (query) => {
-        $log.info('controller', query);
-        FourSquare.search(query).then().catch();
+      this.explore = () => {
+        if (navigator.geolocation) {
+
+          navigator.geolocation.getCurrentPosition((position) => {
+            FourSquare.search(position)
+              .then((results) => {
+                this.results = results;
+                $log.log(this.results);
+              })
+              .catch((err) => {});
+          }, (err) => {
+            $log.warn(`${err} happened`);
+          });
+
+        } else {
+
+          alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+        }
       }
     }
   })
